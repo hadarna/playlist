@@ -1,0 +1,23 @@
+body
+{
+       display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border:2px rgb(74, 13, 74) dotted;
+    width: 800px;
+    background-color: rgb(216, 216, 216);
+}
+
+#myPlaylist{
+    font-size: 50px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: purple;
+}
+#connect{
+    font-size: 40px;
+}
