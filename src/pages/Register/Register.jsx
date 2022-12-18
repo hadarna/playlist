@@ -7,6 +7,11 @@ export default function Register() {
 
     const { user, setUser } = useContext(userContext);
     const fictiveUser = user;
+    const [newUser, setNewUser] = useState({})
+
+    const setField = (field, value) => {
+        setNewUser({ ...newUser, [field]: value })
+    }
 
     const [isExist1, setIsExist1] = useState(true)
     const [isExist2, setIsExist2] = useState(true)
@@ -15,19 +20,31 @@ export default function Register() {
 
     const onSubmit = (e) => {
         e.preventDefault();
+        console.log(newUser)
+        fetch("/api/register", {
+            method: "POST",
+            body: JSON.stringify(newUser),
+            headers: {
+                'Content-Type': "application/json"
+            }
+        })
     }
 
     const isValid1 = (e) => {
         setIsExist1(!e.target.value)
+        setField("fname", e.target.value)
     }
     const isValid2 = (e) => {
         setIsExist2(!e.target.value)
+        setField("lname", e.target.value)
     }
     const isValid3 = (e) => {
         setIsExist3(!e.target.value)
+        setField("email", e.target.value)
     }
     const isValid4 = (e) => {
         setIsExist4(!e.target.value)
+        setField("password", e.target.value)
     }
 
     return (
