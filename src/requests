@@ -1,0 +1,9 @@
+import axios from 'axios';
+
+axios.interceptors.request.use((req) => {
+    req.baseURL = 'http://localhost:4000';
+    req.headers = {
+        authorization: localStorage.token
+    }
+    return req;
+})

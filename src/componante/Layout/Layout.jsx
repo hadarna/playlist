@@ -9,12 +9,15 @@ import Register from "../../pages/Register/Register";
 import { createContext } from "react";
 
 export const userContext = createContext();
+export const playlistContext = createContext();
 
 
 
 export default function Layout() {
     const [songs, setSongs] = useState([]);
-    const [user, setUser] = useState({ first_name: "Rina", last_name: "shushan", email: "rina123@gmail.com", password: "123456abc" });
+    const [user, setUser] = useState({});
+    const [list, setList] = useState([]);
+    const [isLogin, setIsLogin] = useState(false)
 
 
     const searchSongs = (value) => {
@@ -41,17 +44,21 @@ export default function Layout() {
     return (
         <>
             <userContext.Provider value={{ user, setUser }}>
-                <Header onSearch={searchSongs} />
-                <Routes>
-                    <Route path="/" element={<Navigate to="/Home" />} />
-                    <Route path="/home" element={<Home />} />
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/register" element={<Register />} />
-                    <Route path="/results" element={<Main songs={songs} />} />
-                    <Route path="*" element={<Navigate to="<Home" />} />
-
-                </Routes>
+                <playlistContext.Provider value={{ list, setList }}>
+                    <Header onSearch={searchSongs} />
+                    <Routes>
+                        <Route path="/login" element={<Login setIsLogin={setIsLogin} />} />
+                        <Route path="/register" element={<Register setIsLogin={setIsLogin} />} />
+                        {isLogin && <>
+                            <Route path="/" element={<Navigate to="/Home" />} />
+                            <Route path="/home" element={<Home />} />
+                            <Route path="/results" element={<Main songs={songs} />} />
+                            <Route path="*" element={<Navigate to="<Home" />} />
+                        </>}
+                    </Routes>
+                </playlistContext.Provider>
             </userContext.Provider>
+            {console.log(list)}
         </>
 
     )

@@ -1,14 +1,24 @@
 import { useContext, useState } from "react";
-import { userContext } from "../../componante/Layout/Layout";
+import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
 
 
+export default function Register({ setIsLogin }) {
 
-export default function Register() {
+    const navigate = useNavigate();
 
-    const { user, setUser } = useContext(userContext);
-    const fictiveUser = user;
+    function checkStatus(status) {
+        if (status === 200) {
+            alert("You have successfully registered! Wellcome 🤩")
+            setIsLogin(true)
+            navigate("/")
+        }
+        else {
+            alert("This email is already registered in the system. Try again!")
+        }
+    }
+
+
     const [newUser, setNewUser] = useState({})
-
     const setField = (field, value) => {
         setNewUser({ ...newUser, [field]: value })
     }
@@ -21,13 +31,16 @@ export default function Register() {
     const onSubmit = (e) => {
         e.preventDefault();
         console.log(newUser)
-        fetch("/api/register", {
+        fetch("http://localhost:4000/api/register", {
             method: "POST",
             body: JSON.stringify(newUser),
             headers: {
                 'Content-Type': "application/json"
             }
-        })
+            // 
+        }).then((response) => (checkStatus(response.status)))
+
+
     }
 
     const isValid1 = (e) => {
