@@ -4,7 +4,7 @@ body
     justify-content: space-around;
     align-items: center;
 }
-header{
+.header{
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -13,11 +13,11 @@ header{
     background-color: rgb(216, 216, 216);
 }
 
-#myPlaylist{
+.myPlaylist{
     font-size: 50px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     color: purple;
 }
-#connect{
+.connect{
     font-size: 40px;
 }

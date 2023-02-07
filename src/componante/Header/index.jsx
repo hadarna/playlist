@@ -1,4 +1,4 @@
-import "./Header.css"
+import styles from "./style.module.css"
 import { Link, useNavigate } from "react-router-dom"
 
 export default function Header(props) {
@@ -11,9 +11,9 @@ export default function Header(props) {
     }
 
     return (
-        <header id="header">
-            <span id="connect"><Link to={"/login"}>👤</Link></span>
-            <span id="myPlaylist">My Playlist</span>
+        <header className={styles.header}>
+            <span className={styles.connect}><Link to={"/login"}>👤</Link></span>
+            <span className={styles.myPlaylist}>My Playlist</span>
             <input type="search" onInput={(e) => onInput(e)} placeholder="search.." />
             <img src='https://www.emojiall.com/images/240/emojitwo/1f3b5.png' alt="music" height="80px" />
         </header >
