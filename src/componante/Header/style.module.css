@@ -1,23 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+
 body
 {
        display: flex;
     justify-content: space-around;
     align-items: center;
+ 
 }
 .header{
     display: flex;
+    justify-content:space-between;
+    align-items: center;
+    padding: 2px;
+    margin: 3px;
+    width: 98vw;
+    height: 10%;
+    background-color: var(--tertiary);
+   
+}
+.logo{
+    padding: 5px 50px 5px 50px;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+}
+.myMusic{
+    font-size: 50px;
+    font-weight: 400;
+    font-family:  'Fredoka One', cursive;
+    padding: 0px, 0px,30px;
+}
+.nav{
+    display: flex;
     justify-content: space-around;
     align-items: center;
-    border:2px rgb(74, 13, 74) dotted;
-    width: 800px;
-    background-color: rgb(216, 216, 216);
+    padding: 0px 50px;
 }
 
-.myPlaylist{
-    font-size: 50px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    color: purple;
-}
 .connect{
+    font-size: 50px;
+}
+.input{
+    margin: 40px 0px 0px 0px;
+    position: relative;
+    top: 50%;
+    left: 40%;
+    transform: translate(-50%,-50%);
+    transition: all 1s;
+    width: 50px;
+    height: 50px;
+    background: var(--primary);
+    box-sizing: border-box;
+    border-radius: 25px;
+    padding: 5px;
+}
+.input> input{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;;
+    height: 42.5px;
+    line-height: 30px;
+    outline: 0;
+    border: 0;
+    display: none;
+    font-size: 1em;
+    border-radius: 20px;
+    padding: 0 20px;
+    background: var(--primary);
+    
+}
+input::-webkit-search-cancel-button {
+  position:relative;
+  right: 30px;
+}
+
+.search{
+    box-sizing: border-box;
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    top: 2px;
+    right: 5px;
+    border-radius: 50%;
+    text-align: center;
+    transition: all 1s;
     font-size: 40px;
+}
+
+.input:hover{
+    width: 200px;
+    cursor: pointer;
+}
+
+.input:hover input{
+    display: block;
+}
+
+.input:hover:hover .search
+{
+    background: #07051a;
+    color: white;
 }

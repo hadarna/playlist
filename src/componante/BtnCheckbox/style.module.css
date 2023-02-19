@@ -1,0 +1,39 @@
+.ckeckbox{
+    margin: 8px;
+    padding-left: 8px;
+}
+
+.box {
+    width: 18px;
+    height: 18px;
+    position: relative;
+    border: 2px solid var(--primary);
+    border-radius: 4px;
+    cursor: pointer;
+    appearance: none;
+    margin-bottom: -4px;
+}
+.box:checked::before {
+    position:absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: "✔";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(1.1);
+    color: white;
+    background-color: var(--primary);
+    visibility: visible;
+}
+
+.box::before {
+    visibility: hidden;
+} 
+.label{
+    margin: 0 50px 20px 20px;
+     cursor: pointer;   
+     font-size: 13px;
+}

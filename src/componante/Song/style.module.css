@@ -1,0 +1,60 @@
+.oneSong{
+    margin: 3px;
+}
+.imageContainer{
+    position: relative;
+     z-index: 1; 
+ }
+
+.image{
+    width: 270px;
+    height: 170px;
+    border-radius: 8%;
+}
+
+.image:hover{
+ border: 7px solid var(--primary);
+}
+
+.play{
+    visibility: hidden;
+}
+
+.image:hover+ .play{
+visibility: visible;
+ position: absolute;
+    top:110px;
+    right: 34px;
+   font-size: 40px;
+    z-index: 1;
+    width: 45px;
+    height: 45px;
+    color: var(--primary);
+    background-color: rgba(0, 0, 0, 0.593);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.details{
+display: flex;
+flex-direction:row-reverse;
+
+}
+
+.songName{
+    font-weight:600;
+    width: 270px;
+}
+
+.songArtist{
+    font-size: 12px;
+}
+.songDuration{
+    font-size: 11px;
+}
+.add{
+    background-color: transparent;
+    border: none;
+    font-size: 35px;
+    cursor: pointer;
+}

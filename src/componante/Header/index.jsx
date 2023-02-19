@@ -1,5 +1,9 @@
 import styles from "./style.module.css"
 import { Link, useNavigate } from "react-router-dom"
+import { HiOutlineUser } from "react-icons/hi"
+import { GoSearch } from "react-icons/go"
+import { useState } from "react"
+
 
 export default function Header(props) {
     const navigate = useNavigate()
@@ -12,10 +16,15 @@ export default function Header(props) {
 
     return (
         <header className={styles.header}>
-            <span className={styles.connect}><Link to={"/login"}>👤</Link></span>
-            <span className={styles.myPlaylist}>My Playlist</span>
-            <input type="search" onInput={(e) => onInput(e)} placeholder="search.." />
-            <img src='https://www.emojiall.com/images/240/emojitwo/1f3b5.png' alt="music" height="80px" />
+            <div className={styles.logo}>
+                <span className={styles.img}> <img src='https://krosbits.in/images/musicolet_round.png' alt="music" height="70px" /></span>
+                <span className={styles.myMusic}>My Music</span></div>
+            <div className={styles.nav}>
+                <span className={styles.connect}><Link to={"/login"}><HiOutlineUser /></Link></span>
+
+                <div className={styles.input}><input type="search" onInput={(e) => onInput(e)} placeholder="search.." />
+                    <i className={styles.search}><GoSearch /></i>
+                </div></div>
         </header >
 
 

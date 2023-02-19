@@ -1,16 +1,18 @@
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import { playlistContext } from "../Layout";
+import styles from "./style.module.css"
 
 
 export default function BtnCheckbox(props) {
     const { list } = useContext(playlistContext);
 
-    let isExist = list[props.playlistName].includes(props.song)
+
+    const isExist = list[props.playlistName].includes(props.song);
 
     return (
-        <div onClick={(e) => props.handle(e.target.id)}>
-            <input type="checkbox" id={props.playlistName} checked={isExist} />
-            <label for={props.playlistName}>{props.playlistName}</label>
+        <div className={styles.ckeckbox} onClick={(e) => props.handle(e.target.id)}>
+            <input className={styles.box} type="checkbox" id={props.playlistName} checked={isExist} onChange={(e) => props.handle(e.target.id)} />
+            <label className={styles.label} for={props.playlistName}>{props.playlistName}</label>
         </div>
     )
 
